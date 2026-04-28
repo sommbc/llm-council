@@ -89,3 +89,31 @@
   margin-top: 3px;
   letter-spacing: 0.05em;
 }
+
+.conversation-delete-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--ash-dim);
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s;
+  line-height: 0;
+}
+
+.conversation-delete-btn:hover {
+  color: var(--rose);
+}
+
+.conversation-item {
+  position: relative;
+}
+
+.conversation-item:hover .conversation-delete-btn {
+  opacity: 1;
+}

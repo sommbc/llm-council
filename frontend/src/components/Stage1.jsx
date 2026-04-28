@@ -20,13 +20,22 @@ export default function Stage1({ responses }) {
             className={`tab ${activeTab === index ? 'active' : ''}`}
             onClick={() => setActiveTab(index)}
           >
-            {resp.model.split('/')[1] || resp.model}
+            {resp.role || resp.model.split('/')[1] || resp.model}
+            {resp.role && (
+              <span className="model-subtitle">
+                {resp.model.split('/')[1] || resp.model}
+              </span>
+            )}
           </button>
         ))}
       </div>
 
       <div className="tab-content">
-        <div className="model-name">{responses[activeTab].model}</div>
+        <div className="model-name">
+          {responses[activeTab].role
+            ? `${responses[activeTab].role} · ${responses[activeTab].model}`
+            : responses[activeTab].model}
+        </div>
         <div className="response-text markdown-content">
           <ReactMarkdown>{responses[activeTab].response}</ReactMarkdown>
         </div>

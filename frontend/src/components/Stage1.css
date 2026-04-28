@@ -59,6 +59,14 @@
   font-family: monospace;
 }
 
+.model-subtitle {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: #999;
+  margin-top: 2px;
+}
+
 .response-text {
   color: #333;
   line-height: 1.6;

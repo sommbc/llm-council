@@ -77,3 +77,22 @@ async def query_models_parallel(
 
     # Map models to their responses
     return {model: response for model, response in zip(models, responses)}
+
+
+async def query_advisors_parallel(
+    advisor_calls: List[Dict[str, Any]]
+) -> Dict[str, Optional[Dict[str, Any]]]:
+    """
+    Query multiple advisors in parallel, each with their own messages list.
+
+    Args:
+        advisor_calls: List of dicts with keys 'role', 'model', 'messages'
+
+    Returns:
+        Dict mapping role name to response dict (or None if failed)
+    """
+    import asyncio
+
+    tasks = [query_model(a["model"], a["messages"]) for a in advisor_calls]
+    responses = await asyncio.gather(*tasks)
+    return {a["role"]: response for a, response in zip(advisor_calls, responses)}

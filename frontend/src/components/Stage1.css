@@ -1,65 +1,66 @@
-.stage {
-  margin: 24px 0;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
+.stage1 {
+  margin: 16px 0;
 }
 
-.stage-title {
-  margin: 0 0 16px 0;
-  color: #333;
-  font-size: 16px;
-  font-weight: 600;
+.stage1-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 12px;
 }
 
-.tabs {
+.stage1-tabs {
   display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 3px;
   flex-wrap: wrap;
 }
 
-.tab {
+.stage1-tab {
   padding: 8px 16px;
-  background: #ffffff;
-  border: 1px solid #d0d0d0;
-  border-radius: 6px 6px 0 0;
-  color: #666;
+  background: var(--card);
+  border: 1px solid var(--rule-light);
+  border-radius: 0;
+  color: var(--ash);
   cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
-}
-
-.tab:hover {
-  background: #f0f0f0;
-  color: #333;
-  border-color: #4a90e2;
-}
-
-.tab.active {
-  background: #ffffff;
-  color: #4a90e2;
-  border-color: #4a90e2;
-  border-bottom-color: #ffffff;
+  font-family: inherit;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all 0.15s;
 }
 
-.tab-content {
-  background: #ffffff;
-  padding: 16px;
-  border-radius: 6px;
-  border: 1px solid #e0e0e0;
+.stage1-tab:hover {
+  color: var(--bone);
+  border-color: var(--ash-dim);
+  background: var(--rose-glow);
 }
 
-.model-name {
-  color: #888;
-  font-size: 12px;
-  margin-bottom: 12px;
-  font-family: monospace;
+.stage1-tab.active {
+  color: var(--rose);
+  border-color: var(--rose);
+  background: var(--rose-glow);
+}
+
+.stage1-content {
+  background: var(--card);
+  border: 1px solid var(--rule-light);
+  border-top: none;
+  padding: 20px 24px;
+}
+
+.stage1-model-badge {
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--ash-dim);
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  margin-bottom: 14px;
+  letter-spacing: 0.05em;
 }
 
 .response-text {
-  color: #333;
-  line-height: 1.6;
+  color: var(--bone);
+  line-height: 1.72;
 }

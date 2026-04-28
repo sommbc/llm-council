@@ -5,36 +5,25 @@ import './Stage1.css';
 export default function Stage1({ responses }) {
   const [activeTab, setActiveTab] = useState(0);
 
-  if (!responses || responses.length === 0) {
-    return null;
-  }
+  if (!responses || responses.length === 0) return null;
 
   return (
-    <div className="stage stage1">
-      <h3 className="stage-title">Stage 1: Individual Responses</h3>
-
-      <div className="tabs">
+    <div className="stage1">
+      <div className="stage1-label">Advisor Responses</div>
+      <div className="stage1-tabs">
         {responses.map((resp, index) => (
           <button
             key={index}
-            className={`tab ${activeTab === index ? 'active' : ''}`}
+            className={`stage1-tab ${activeTab === index ? 'active' : ''}`}
             onClick={() => setActiveTab(index)}
           >
             {resp.role || resp.model.split('/')[1] || resp.model}
-            {resp.role && (
-              <span className="model-subtitle">
-                {resp.model.split('/')[1] || resp.model}
-              </span>
-            )}
           </button>
         ))}
       </div>
-
-      <div className="tab-content">
-        <div className="model-name">
-          {responses[activeTab].role
-            ? `${responses[activeTab].role} · ${responses[activeTab].model}`
-            : responses[activeTab].model}
+      <div className="stage1-content">
+        <div className="stage1-model-badge">
+          {responses[activeTab].model}
         </div>
         <div className="response-text markdown-content">
           <ReactMarkdown>{responses[activeTab].response}</ReactMarkdown>
